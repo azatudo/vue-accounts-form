@@ -24,7 +24,7 @@
       <input
         v-model="local.login"
         type="text"
-        @blur="save"
+        @input="save"
       />
     </div>
 
@@ -33,7 +33,7 @@
       <input
         v-model="local.password"
         type="password"
-        @blur="save"
+        @input="save"
       />
     </div>
   </div>

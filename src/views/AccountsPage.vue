@@ -66,8 +66,21 @@ function removeAccount(id: string) {
 .add-btn {
   width: 36px;
   height: 36px;
+  border-radius: 50%;
+  border: 1px solid #777;
+  background: transparent;
+  color: #fff;
   font-size: 20px;
+  line-height: 1;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn:hover {
+  border-color: #fff;
 }
 
 .list {
@@ -78,8 +91,8 @@ function removeAccount(id: string) {
 
 .account-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; 
+  gap: 12px;
   padding: 12px;
   border: 1px solid #ddd;
 }
@@ -89,6 +102,7 @@ function removeAccount(id: string) {
 }
 
 .remove-btn {
+  margin-top: 8px;     
   background: none;
   border: none;
   color: #c00;
