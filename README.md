@@ -1,5 +1,33 @@
-# Vue 3 + TypeScript + Vite
+# Vue Accounts Form
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Небольшое тестовое приложение для управления учетными записями.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Проект сделан на Vue 3 с использованием Composition API и TypeScript.
+Данные сохраняются локально в localStorage и не пропадают при перезагрузке страницы.
+
+## Что реализовано
+
+- Список учетных записей
+- Добавление и удаление учетной записи
+- Редактирование учетной записи:
+  - метки (ввод через `;`)
+  - тип записи (LDAP / Локальная)
+  - логин
+  - пароль (только для локальной записи)
+- Базовая валидация обязательных полей
+- Сохранение состояния между перезагрузками
+
+## Стек
+
+- Vue 3
+- TypeScript
+- Vite
+- Pinia
+
+## Запуск проекта
+
+npm install
+npm run dev
+
+После запуска приложение будет доступно по адресу:
+http://localhost:5173
