@@ -114,7 +114,8 @@ function save() {
 .account-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  flex: 1;
 }
 
 .row {
@@ -130,10 +131,17 @@ label {
 
 input,
 select {
-  padding: 6px 8px;
-  background: transparent;
-  border: 1px solid #555;
+  padding: 8px 10px;
+  background: #0f0f0f;
+  border: 1px solid #333;
+  border-radius: 6px;
   color: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #555;
 }
 
 input.error {

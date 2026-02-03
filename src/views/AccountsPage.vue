@@ -67,11 +67,10 @@ function removeAccount(id: string) {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid #777;
-  background: transparent;
+  border: 1px solid #333;
+  background: #0f0f0f;
   color: #fff;
   font-size: 20px;
-  line-height: 1;
   cursor: pointer;
 
   display: flex;
@@ -80,7 +79,7 @@ function removeAccount(id: string) {
 }
 
 .add-btn:hover {
-  border-color: #fff;
+  background: #1a1a1a;
 }
 
 .list {
@@ -91,10 +90,12 @@ function removeAccount(id: string) {
 
 .account-row {
   display: flex;
-  align-items: flex-start; 
-  gap: 12px;
-  padding: 12px;
-  border: 1px solid #ddd;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  background: #141414;
 }
 
 .account-login {
@@ -102,13 +103,28 @@ function removeAccount(id: string) {
 }
 
 .remove-btn {
-  margin-top: 8px;     
-  background: none;
-  border: none;
-  color: #c00;
-  font-size: 18px;
+  align-self: flex-start;
+  margin-top: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #888;
+  font-size: 16px;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.remove-btn:hover {
+  border-color: #333;
+  color: #f55;
+}
+
+
 
 .empty {
   color: #777;
