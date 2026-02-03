@@ -14,9 +14,10 @@
         :key="account.id"
         class="account-row"
       >
-        <span class="account-login">
-          {{ account.login || 'Новая учетная запись' }}
-        </span>
+        <AccountForm
+        :model-value="account"
+        @update="store.updateAccount"
+        />
 
         <button
           class="remove-btn"
@@ -35,6 +36,7 @@
 
 <script setup lang="ts">
 import { useAccountsStore } from '../stores/accounts';
+import AccountForm from '../components/AccountForm.vue'
 
 const store = useAccountsStore();
 
