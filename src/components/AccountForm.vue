@@ -24,8 +24,12 @@
       <input
         v-model="local.login"
         type="text"
-        @input="save"
+        :class="{ error: errors.login }"
+        @blur="save"
       />
+      <small v-if="errors.login" class="error-text">
+        {{ errors.login }}
+      </small>
     </div>
 
     <div class="row" v-if="local.type === 'LOCAL'">
@@ -33,8 +37,12 @@
       <input
         v-model="local.password"
         type="password"
-        @input="save"
+        :class="{ error: errors.password }"
+        @blur="save"
       />
+      <small v-if="errors.password" class="error-text">
+        {{ errors.password }}
+      </small>
     </div>
   </div>
 </template>
@@ -53,6 +61,11 @@ const emit = defineEmits<{
 
 const local = reactive<Account>({ ...props.modelValue })
 
+const errors = reactive({
+  login: '',
+  password: '',
+})
+
 const labelInput = computed({
   get() {
     return local.label.map(l => l.text).join('; ')
@@ -66,14 +79,33 @@ const labelInput = computed({
   },
 })
 
+function validate() {
+  errors.login = ''
+  errors.password = ''
+
+  if (!local.login || !local.login.trim()) {
+    errors.login = 'Логин обязателен'
+  }
+
+  if (local.type === 'LOCAL') {
+    if (!local.password || !local.password.trim()) {
+      errors.password = 'Пароль обязателен'
+    }
+  }
+
+  return !errors.login && !errors.password
+}
+
 function onTypeChange() {
   if (local.type === 'LDAP') {
     local.password = null
+    errors.password = ''
   }
   save()
 }
 
 function save() {
+  if (!validate()) return
   emit('update', { ...local })
 }
 </script>
@@ -104,8 +136,17 @@ select {
   color: #fff;
 }
 
+input.error {
+  border-color: #c00;
+}
+
 .hint {
   font-size: 11px;
   color: #777;
+}
+
+.error-text {
+  font-size: 11px;
+  color: #c00;
 }
 </style>
